@@ -1,10 +1,3 @@
-/// Стоит описать логику калькулятора, очевидно у нас есть
-// большой блок, в котором есть сбольшой блок с "Экраном"
-//справа небольшая панелька  с знаком умножени, деления, умножения
-// и так далее, надо что бы это было на экране
-// еще знак ровно, потом девять кнопок цифр
-// на каждую кнопку надо поставить ивент листенир.
-
 let firstOperand = "";
 let secondOperand = "";
 let currentOperation = null;
@@ -88,4 +81,60 @@ function evaluate() {
   );
   lastOperationScreen.textContent = `${firstOperand} ${currentOperation} ${secondOperand} =`;
   currentOperation = null;
+}
+
+function roundResult(number) {
+  return Math.round(number * 1000) / 1000;
+}
+
+function handleKeyboardInput(e) {
+  if (e.key >= 0 && e.key <= 9) appendNumber(e.key);
+  if (e.key === ".") appendPoint();
+  if (e.key === "=" || e.key === "Enter") evaluate();
+  if (e.key === "Backspace") deleteNumber();
+  if (e.key === "Escape") clear();
+  if (e.key === "+" || e.key === "-" || e.key === "*" || e.key === "/")
+    setOperation(convertOperator(e.key));
+}
+
+function convertOperator(keyboardOperator) {
+  if (keyboardOperator === "/") return "/";
+  if (keyboardOperator === "*") return "x";
+  if (keyboardOperator === "-") return "-";
+  if (keyboardOperator === "+") return "+";
+}
+
+function add(a, b) {
+  return a + b;
+}
+
+function substract(a, b) {
+  return a - b;
+}
+
+function multiply(a, b) {
+  return a * b;
+}
+
+function divide(a, b) {
+  return a / b;
+}
+
+function operate(operator, a, b) {
+  a = Number(a);
+  b = Number(b);
+
+  switch (operator) {
+    case "+":
+      return add(a, b);
+    case "-":
+      return substract(a, b);
+    case "x":
+      return multiply(a, b);
+    case "/":
+      if (b === 0) return null;
+      else return divide(a, b);
+    default:
+      return null;
+  }
 }
