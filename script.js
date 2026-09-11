@@ -3,8 +3,8 @@ let secondOperand = "";
 let currentOperation = null;
 let shouldResetScreen = false;
 
-const numberButtons = document.querySelector("[data-number]");
-const operatorButtons = document.querySelector("[data-operator]");
+const numberButtons = document.querySelectorAll("[data-number]");
+const operatorButtons = document.querySelectorAll("[data-operator]");
 const equalsButton = document.getElementById("equalsBtn");
 const clearButton = document.getElementById("clearBtn");
 const deleteButton = document.getElementById("deleteBtn");
@@ -77,7 +77,7 @@ function evaluate() {
   }
   secondOperand = currentOperationScreen.textContent;
   currentOperationScreen.textContent = roundResult(
-    operator(currentOperation, firstOperand, secondOperand),
+    operate(currentOperation, firstOperand, secondOperand),
   );
   lastOperationScreen.textContent = `${firstOperand} ${currentOperation} ${secondOperand} =`;
   currentOperation = null;
