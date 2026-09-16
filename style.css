@@ -1,0 +1,127 @@
+:root {
+  --backround: rgb(91, 86, 155);
+  --font: #222;
+  --border: black;
+  --screen: rgb(208, 206, 206);
+  --calculator: #6c95e8;
+  --btn: #ffe3e3;
+  --btn: #ffffff;
+  --btn-hover: #4efdc3;
+  --btn-active: #6b3fed;
+  --btn-red: rgb(247, 98, 98);
+  --btn-red-hover: rgb(255, 182, 182);
+  --btn-red-active: rgb(169, 73, 73);
+  --btn-blue: rgb(182, 138, 182);
+  --btn-blue-hover: rgb(145, 145, 219);
+  --btn-blue-active: rgb(115, 174, 195);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--backround);
+  color: var(--font);
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  margin-bottom: 100px;
+}
+
+button {
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+/* MAIN */
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+  min-height: 500px;
+  padding: 10px;
+  margin-top: 50px;
+}
+
+.calculator {
+  width: 400px;
+  border: 2px var(--border) solid;
+  border-radius: 15px;
+  padding: 20px;
+  background-color: var(--calculator);
+}
+.screen {
+  padding: 10px 20px;
+  border: 2px var(--border) solid;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: var(--screen);
+  text-align: right;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.screen-last {
+  min-height: 32px;
+  font-size: 20px;
+}
+
+.screen-current {
+  min-height: 64px;
+  font-size: 40px;
+}
+
+.buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+.span-2 {
+  grid-column: span 2;
+}
+
+.btn {
+  padding: 20px;
+  border: 2px var(--border) solid;
+  border-radius: 5px;
+  background-color: var(--btn);
+  font-size: 20px;
+}
+
+.btn:hover {
+  background-color: var(--btn-blue-hover);
+}
+.btn:active {
+  background-color: var(--btn-active);
+}
+.btn-red {
+  background-color: var(--btn-red);
+}
+.btn-red:hover {
+  background-color: var(--btn-red-hover);
+}
+.btn-blue:active {
+  background-color: var(--btn-blue-active);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
