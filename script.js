@@ -17,7 +17,7 @@ const currentOperationScreen = document.getElementById(
 window.addEventListener("keydown", handleKeyboardInput);
 equalsButton.addEventListener("click", evaluate);
 clearButton.addEventListener("click", clear);
-deleteButton.addEventListener("click", appendPoint);
+deleteButton.addEventListener("click", deleteNumber);
 
 numberButtons.forEach((button) =>
   button.addEventListener("click", () => appendNumber(button.textContent)),
@@ -28,10 +28,9 @@ operatorButtons.forEach((button) =>
 );
 
 function appendNumber(number) {
-  if (currentOperationScreen.textContent === "0" || shouldResetScreen) {
+  if (currentOperationScreen.textContent === "0" || shouldResetScreen)
     resetScreen();
-    currentOperationScreen.textContent += number;
-  }
+  currentOperationScreen.textContent += number;
 }
 
 function resetScreen() {
@@ -71,7 +70,7 @@ function setOperation(operator) {
 
 function evaluate() {
   if (currentOperation === null || shouldResetScreen) return;
-  if (currentOperation === "+" && currentOperationScreen.textContent === "0") {
+  if (currentOperation === "/" && currentOperationScreen.textContent === "0") {
     alert("You can't divide by 0!");
     return;
   }
